@@ -1,0 +1,163 @@
+@use "../../App.scss" as global-style;
+
+.nav{
+    padding: global-style.$mobile-gap;
+    display: flex;
+    flex-wrap: wrap;
+    gap: global-style.$mobile-gap;
+    max-width: global-style.$max-width;
+    min-width: global-style.$min-width;
+
+    @include global-style.tablet {
+        align-items: center;
+        justify-content: space-between;
+        padding: global-style.$mobile-gap global-style.$tablet-gap;
+    }
+
+    @include global-style.desktop {
+        padding: global-style.$mobile-gap global-style.$desktop-gap;
+        padding-right: 9rem;
+    }
+
+    &__logo {
+        @include global-style.mobile {
+            width: 100%;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        flex-wrap: none;
+            
+    }
+
+    &__search {
+        width: 15rem;
+        height: 2.25rem;
+        font-family: "Avenir",sans-serif;
+        background-image: url("../../assets/images/Icons/search.svg");
+        background-position: 0.5rem center;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        background-size: 7%;
+        padding-left: 2rem;
+        border-radius: 4px;
+        border: 1px solid global-style.$brainflix-mercury;
+        box-sizing: border-box;
+        background-color: global-style.$brainflix-Alabaster;
+
+        @include global-style.tablet {
+            height: 2.5rem;
+            display: none;
+        }
+    }
+
+    &__search::placeholder {
+        font-family: "Avenir" sans-serif;
+        font-size: 0.75rem;
+        color: global-style.$brainflix-black;
+    }
+
+    &__avatar {
+        @include global-style.mobile {
+            display: flex;
+            gap: global-style.$mobile-gap;
+            justify-content: center;
+            width: 100%;
+        }
+
+        display: none;
+
+    }
+
+    &__avatar-mohan {
+        width: 2.25rem;
+        height: 2.25rem;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: 20% 100%;
+
+        @include global-style.tablet {
+            display: none;
+        }
+    }
+
+    &__avatar-mohan-tablet {
+        @include global-style.mobile {
+            display: none;
+        }
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: 20% 100%;
+    }
+
+    &__button {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include global-style.tablet {
+            width: 30rem;
+            gap: 1.25rem;
+            justify-content: right;
+        }
+    }
+
+    &__search-tablet {
+        @include global-style.mobile {
+            display: none;
+        }
+
+        @include global-style.tablet {
+            width: 15rem;
+            height: 2.5rem;
+            font-family: "Avenir",sans-serif;
+            background-image: url("../../assets/images/Icons/search.svg");
+            background-position: 0.5rem center;
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            background-size: 7%;
+            padding-left: 2rem;
+            border-radius: 4px;
+            border: 1px solid global-style.$brainflix-mercury;
+            box-sizing: border-box;
+            background-color: global-style.$brainflix-Alabaster;
+        }
+        
+        &__search::placeholder {
+            font-family: "Avenir" sans-serif;
+            font-size: 0.75rem;
+            color: global-style.$brainflix-black;
+        }
+    }
+
+    &__button-upload {
+        height: 2.5rem;
+        width: 18.25rem;
+        background-image: url("../../assets/images/Icons/upload.svg");
+        background-position: 0.5rem center;
+        background-repeat: no-repeat;
+        background-color: global-style.$brainflix-blue;
+        background-size: 7.5%;
+        border: none;
+        border-radius: 4px;
+        font-family: "Avenir", sans-serif;
+        font-weight: 400;
+        font-size: 0.75rem;
+        color: global-style.$whilte;
+
+        @include global-style.tablet {
+            width: 10rem;
+            background-size: 12.5%;
+        }
+
+        @include global-style.desktop {
+            width: 9rem;
+        }
+    }
+
+}
