@@ -3,7 +3,6 @@ import logo from "../../assets/images/Logo/BrainFlix-logo.svg";
 import avatar from "../../assets/images/Images/Mohan-muruge.jpg";
 import "./Header.scss";
 
-
 const Header = () => {
     return (
         <nav className='nav'>
@@ -19,8 +18,6 @@ const Header = () => {
                 <button className='nav__button-upload'>UPLOAD</button>
                 <img className="nav__avatar-mohan-tablet" src={avatar} alt="Mohan Muruge Avatar"></img>
             </div>
-
-            
         </nav>
     );
 };
