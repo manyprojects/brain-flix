@@ -14,7 +14,7 @@ const Header = () => {
                 <img className="nav__avatar-mohan" src={avatar} alt="Mohan Muruge Avatar"></img>
             </div>
             <div className='nav__button'>
-                <input className='nav__search-tablet' type="search" placeholder="Search" id="search" name="search"></input>
+                <input className='nav__search-tablet' type="search" placeholder="Search" id="search-tablet" name="search"></input>
                 <button className='nav__button-upload'>UPLOAD</button>
                 <img className="nav__avatar-mohan-tablet" src={avatar} alt="Mohan Muruge Avatar"></img>
             </div>

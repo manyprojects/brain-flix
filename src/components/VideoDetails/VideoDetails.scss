@@ -1,0 +1,18 @@
+.video-details {
+
+
+    &__video {
+        width: 100vw;
+    }
+
+
+    &__avatar {
+        width: 2.25rem;
+        height: 2.25rem;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: 20% 100%;
+        margin-top: 1.5rem;
+    }
+
+}
