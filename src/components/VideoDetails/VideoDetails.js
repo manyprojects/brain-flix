@@ -47,7 +47,7 @@ const VideoDetails = (props) => {
 
             <h1 className='video-details__title'>{title}</h1>
 
-            <hr className='video-details__divider'/>
+            <hr className='video-details__divider-tablet'/>
 
             <div className='video-details__info'>
                 <div className='video-details__left'>
@@ -60,13 +60,14 @@ const VideoDetails = (props) => {
                         <p className='video-details__views-text'>{views}</p>
                     </div>
                     <div className='video-details__likes'>
-                        <img src={imgLikes}></img>
+                        <img src={imgLikes} alt='like icon'></img>
                         <p className='video-details__likes-text'>{likes}</p>
                     </div>
                 </div>
             </div>
             
             <hr className='video-details__divider'/>
+
             <article>
                 <p className='video-details__description'>{description}</p>
             </article>
@@ -74,10 +75,12 @@ const VideoDetails = (props) => {
             <div className='video-details__input'>
                 <h3 className='video-details__heading'>{comments.length} Comments</h3>
                 <form className='video-details__form'>
-                    <img className='video-details__avatar' src={commentAvatar} />
+                    <img className='video-details__avatar' src={commentAvatar} alt='colored avatar' />
                     <div className='video-details__text-block' >
-                        <label className='video-details__label' htmlFor="userText">JOIN THE CONVERSATION</label><br />
-                        <textarea className="video-details__text" name="userText" id="userText" rows="5" cols="50" placeholder="Add a new comment" required></textarea><br />
+                        <div className='video-details__input-block'>
+                            <label className='video-details__label' htmlFor="userText">JOIN THE CONVERSATION</label><br />
+                            <textarea className="video-details__text" name="userText" id="userText" rows="5" cols="50" placeholder="Add a new comment" required></textarea><br />
+                        </div>
                         <button className="video-details__button" type="submit">COMMENT</button>
                     </div>
                 </form>

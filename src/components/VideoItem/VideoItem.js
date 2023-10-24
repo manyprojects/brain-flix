@@ -10,10 +10,10 @@ const VideoItem = (props) => {
 
     return (
         <li className='video-list'>
-            <img id={props.id} onClick = {handleClick} src={props.image} className='video-list__image'/>
+            <img id={props.id} onClick = {handleClick} src={props.image} className='video-list__image' alt='videos' />
             <div className='video-list__text'>
                 <p className='video-list__title'>{props.title}</p>
-                <p>{props.channel}</p>
+                <p className='video-list__channel'>{props.channel}</p>
             </div>
         </li>
     );

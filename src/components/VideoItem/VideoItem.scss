@@ -8,13 +8,18 @@
     min-width: global-style.$min-width;
 
     @include global-style.tablet {
-        margin-top: 1.6rem;
+        margin-top: 1.5rem;
     }
     
     &__image {
         width: 6.5rem;
         height: 3.8rem;
         border-radius: 4px;
+
+        @include global-style.tablet {
+            width: 7rem;
+            height: 4rem;
+        }
     }
 
     &__text {
@@ -28,9 +33,16 @@
     &__title{
         line-height: 1.1rem;
         font-weight: 400;
-    }
-}
 
-h5 {
-    font-size: 0.5rem;
+        @include global-style.tablet {
+            font-size: 0.9rem;
+            width: 11.25rem;
+        }
+    }
+
+    &__channel {
+        @include global-style.tablet {
+            font-size: 0.9rem;
+        }
+    }
 }

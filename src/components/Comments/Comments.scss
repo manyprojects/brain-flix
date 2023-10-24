@@ -31,7 +31,7 @@
         color: global-style.$brainflix-black;
 
         @include global-style.tablet {
-            width: 100%;
+            width: calc(100% - 3.5rem);
             line-height:1.4rem;
             font-size: 0.9rem;
         }
@@ -61,6 +61,7 @@
     min-width: global-style.$min-width;
 
     @include global-style.tablet {
+        width: calc(100% - 4rem);
         margin: 0 global-style.$tablet-gap;
     }
 }
