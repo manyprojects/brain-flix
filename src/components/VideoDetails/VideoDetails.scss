@@ -11,6 +11,7 @@
         width: 100vw;
         height: 57vw;
         min-width: global-style.$min-width;
+        max-width: global-style.$max-width;
 
         @include global-style.tablet {
             height: 52vw;
