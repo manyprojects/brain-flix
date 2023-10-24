@@ -1,6 +1,12 @@
 @use "../../App.scss" as global-style;
 
 .video-details {
+    @include global-style.desktop {
+        width: 75%;
+        padding-left: global-style.$desktop-gap;
+        padding-right: 1rem;
+    }
+
     &__video {
         width: 100vw;
         height: 57vw;
@@ -9,6 +15,10 @@
         @include global-style.tablet {
             height: 52vw;
         }
+
+        @include global-style.desktop {
+            height: 38vw;
+        }
     }
 
     &__title {
@@ -16,10 +26,16 @@
         margin: 1rem 0;
         padding: 0 global-style.$mobile-gap;
         min-width: global-style.$min-width;
+        max-width: global-style.$max-width;
 
         @include global-style.tablet {
             font-size: 2rem;
             padding: 0 global-style.$tablet-gap;
+        }
+
+        @include global-style.desktop {
+            padding: 0.5rem global-style.$desktop-gap 0;
+            margin-bottom: 0;
         }
     }
 
@@ -29,11 +45,17 @@
         justify-content: left;
         gap: 35%;
         min-width: global-style.$min-width;
+        max-width: global-style.$max-width;
 
         @include global-style.tablet {
             padding: 0 global-style.$tablet-gap;
             justify-content: space-between;
         }
+
+        @include global-style.desktop {
+            padding-left: global-style.$desktop-gap;
+            padding-right: 1rem;
+        }        
     }
 
     &__left {
@@ -46,6 +68,10 @@
         @include global-style.tablet {
             display: flex;
             flex-direction: row;
+        }
+
+        @include global-style.desktop {
+            margin-bottom: 0.5rem;
         }
     }
 
@@ -109,11 +135,19 @@
         line-height: 1.15rem;
         color: global-style.$brainflix-black;
         min-width: global-style.$min-width;
+        max-width: global-style.$max-width;
 
         @include global-style.tablet {
             padding: 1.5rem global-style.$tablet-gap;
             font-size: 0.9rem;
             line-height: 1.45rem;
+        }
+
+        @include global-style.desktop {
+            font-size: 0.9rem;
+            line-height: 1.45rem;
+            padding-left: global-style.$desktop-gap;
+            padding-right: 1rem;
         }
     }
 
@@ -123,6 +157,11 @@
         @include global-style.tablet {
             padding: global-style.$tablet-gap global-style.$tablet-gap 1.5rem;
         }
+
+        @include global-style.desktop {
+            padding-left: global-style.$desktop-gap;
+            padding-right: 1rem;
+        }        
     }
 
     &__heading {
@@ -239,6 +278,10 @@
             width: calc(100% - 4rem);
             margin: 0 global-style.$tablet-gap;
         }
+        @include global-style.desktop {
+            width: calc(100% - 9rem);
+            margin: 0 global-style.$desktop-gap;
+        }
     }
 
     &__divider-tablet {
@@ -251,6 +294,5 @@
         @include global-style.tablet {
             display: none;
         }
-
     }
 }

@@ -2,13 +2,11 @@ import React from 'react';
 import "./VideoDetails.scss";
 import imgViews from "../../assets/images/Icons/views.svg";
 import imgLikes from "../../assets/images/Icons/likes.svg";
-// import imgPlay from "../../assets/images/Icons/play.svg";
 import commentAvatar from "../../assets/images/Images/Mohan-muruge.jpg";
 import Comments from "../Comments/Comments";
 
 const VideoDetails = (props) => {
 
-    console.log("details:  ", props.videoDetailsData[0]);
     const {
         // id, 
         title, 
@@ -22,9 +20,6 @@ const VideoDetails = (props) => {
         timestamp, 
         comments
     } = props.videoDetailsData[0];
-
-    console.log("comment array", comments);
-
 
     function timeFunc(timestamp) {
         const commentDate = new Date(timestamp); 

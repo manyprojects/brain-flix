@@ -12,6 +12,10 @@
         padding: 1.5rem global-style.$tablet-gap;
     }
 
+    @include global-style.desktop {
+        padding: 1.5rem 1rem 1.5rem global-style.$desktop-gap ;
+    }
+
     &__holder {
         width: 2.25rem;
         height: 2.25rem;
@@ -63,5 +67,10 @@
     @include global-style.tablet {
         width: calc(100% - 4rem);
         margin: 0 global-style.$tablet-gap;
+    }
+
+    @include global-style.desktop {
+        width: calc(100% - 9rem);
+        margin: 0 global-style.$desktop-gap;
     }
 }

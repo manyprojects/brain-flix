@@ -8,6 +8,13 @@
         padding: 1.5rem global-style.$tablet-gap;
     }
 
+    @include global-style.desktop {
+        width: 25%;
+        padding-left: 0;
+        padding-right: 1rem;
+        align-self: flex-end;
+    }
+
     &__title {
         font-size: 0.75rem;
         font-weight: 400;

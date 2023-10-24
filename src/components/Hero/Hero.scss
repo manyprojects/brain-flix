@@ -1,1 +1,12 @@
 @use "../../App.scss" as global-style;
+
+.main {
+    max-width: global-style.$max-width;
+
+    @include global-style.desktop {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        min-height: 80rem;
+    }
+}
