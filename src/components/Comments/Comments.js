@@ -1,16 +1,22 @@
 import React from 'react';
+import "./Comments.scss";
 
 
 const Comments = (props) => {
     return (
-        <div className='video-details__comments'>
-            <div className='video-details__avatar-comment'></div>
-            <div className='video-details__content'>
-                <h5>{props.name}</h5>
-                <p>{props.timestamp}</p>
-                <p>{props.comment}</p>
+        <>
+            <div className='video-comments'>
+                <div className='video-comments__holder'></div>
+                <div className='video-comments__content'>
+                    <div className='video-comments__flex'>
+                        <h4 className='video-comments__name'>{props.name}</h4>
+                        <p className='video-comments__time'>{props.timeFunc(props.timestamp)}</p>
+                    </div>
+                    <p>{props.comment}</p>
+                </div>
             </div>
-        </div>
+            <hr className='divider'/>
+        </>
     );
 };
 

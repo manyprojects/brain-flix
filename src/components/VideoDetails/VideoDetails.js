@@ -2,7 +2,7 @@ import React from 'react';
 import "./VideoDetails.scss";
 import imgViews from "../../assets/images/Icons/views.svg";
 import imgLikes from "../../assets/images/Icons/likes.svg";
-import imgPlay from "../../assets/images/Icons/play.svg";
+// import imgPlay from "../../assets/images/Icons/play.svg";
 import commentAvatar from "../../assets/images/Images/Mohan-muruge.jpg";
 import Comments from "../Comments/Comments";
 
@@ -10,79 +10,87 @@ const VideoDetails = (props) => {
 
     console.log("details:  ", props.videoDetailsData[0]);
     const {
-        id, 
+        // id, 
         title, 
         channel, 
         image, 
         description, 
         views, 
         likes, 
-        duration, 
-        video, 
+        // duration, 
+        // video, 
         timestamp, 
         comments
     } = props.videoDetailsData[0];
 
     console.log("comment array", comments);
 
+
+    function timeFunc(timestamp) {
+        const commentDate = new Date(timestamp); 
+        let month = commentDate.getMonth() + 1;
+        let date = commentDate.getDate();
+        if (month < 10) {
+            month  = '0' + month;
+        }
+        if (date < 10) {
+            date = '0' + date;
+        }
+        return  `${month}/${date}/${commentDate.getFullYear()}`;
+    }
+
     return (
         <div className='video-details'>
             {/* poster attribute is used */}
-            <video className='video-details__video' poster={image}>
+            <video className='video-details__video' controls poster={image}>
             </video>
-            <div>
-                <button>
-                    <img src={imgPlay}></img>
-                </button>
-                <div>
-                    <progress id="file" value="32" max="100"> 32% </progress>
+
+            <h1 className='video-details__title'>{title}</h1>
+
+            <hr className='video-details__divider'/>
+
+            <div className='video-details__info'>
+                <div className='video-details__left'>
+                    <h5 className='video-details__channel'>By {channel}</h5>
+                    <h5 className='video-details__time'>{timeFunc(timestamp)}</h5>
                 </div>
-
+                <div className='video-details__right'>
+                    <div className='video-details__views'>
+                        <img src={imgViews} alt='clicked img'></img>
+                        <p className='video-details__views-text'>{views}</p>
+                    </div>
+                    <div className='video-details__likes'>
+                        <img src={imgLikes}></img>
+                        <p className='video-details__likes-text'>{likes}</p>
+                    </div>
+                </div>
             </div>
-            <h1>{title}</h1>
-
-            <hr />
-            <div>
-                <h5>By {channel}</h5>
-                <h5>{timestamp}</h5>
-                <img src={imgViews}></img>
-                <h5>{views}</h5>
-                <img src={imgLikes}></img>
-                <h5>{likes}</h5>
-            </div>
-            <hr />
+            
+            <hr className='video-details__divider'/>
             <article>
-                <p>{description}</p>
+                <p className='video-details__description'>{description}</p>
             </article>
 
             <div className='video-details__input'>
-                <h3>{comments.length} Comments</h3>
-                <h5>Join the Conversation</h5>
-                <form>
+                <h3 className='video-details__heading'>{comments.length} Comments</h3>
+                <form className='video-details__form'>
                     <img className='video-details__avatar' src={commentAvatar} />
-                    <div>
-                        <label htmlFor="userText">COMMENT</label><br />
-                        <textarea className="comments__text" name="userText" id="userText" rows="5" cols="50" placeholder="Add a new comment" required></textarea><br />
-                        <button className="comments__button" type="submit">COMMENT</button>
-                        <hr />
+                    <div className='video-details__text-block' >
+                        <label className='video-details__label' htmlFor="userText">JOIN THE CONVERSATION</label><br />
+                        <textarea className="video-details__text" name="userText" id="userText" rows="5" cols="50" placeholder="Add a new comment" required></textarea><br />
+                        <button className="video-details__button" type="submit">COMMENT</button>
                     </div>
                 </form>
             </div>
+            <hr className='video-details__divider' />
 
             {comments.map(comment => (
-                // <div className='video-details__comments'>
-                //     <div className='video-details__avatar-comment'></div>
-                //     <div className='video-details__content'>
-                //         <h5>{comment.name}</h5>
-                //         <p>{comment.timestamp}</p>
-                //         <p>{comment}</p>
-                //     </div>
-                // </div>
                 <Comments 
                     key = {comment.id}
                     name = {comment.name}
                     timestamp = {comment.timestamp}
                     comment = {comment.comment}
+                    timeFunc = {timeFunc}
                 />
             ))}
 

@@ -1,0 +1,17 @@
+@use "../../App.scss" as global-style;
+
+
+.list {
+    padding: global-style.$mobile-gap;
+
+    @include global-style.tablet {
+        padding: 1.5rem global-style.$tablet-gap;
+    }
+
+    &__title {
+        font-size: 0.75rem;
+        font-weight: 400;
+        color: global-style.$silver;
+        margin-bottom: global-style.$mobile-gap;
+    }
+}

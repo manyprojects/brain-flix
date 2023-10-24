@@ -1,11 +1,13 @@
 import React from 'react';
 import VideoItem from '../VideoItem/VideoItem';
+import "./VideoList.scss";
 
 
 const VideoList = (props) => {
     return (
         <>
-            <ul>
+            <ul className='list'>
+                <h5 className='list__title'>NEXT VIDEOS</h5>
                 {props.videos.map(video => 
                     video.id === props.selectedVideo.id? console.log(video.id):
                         <VideoItem 

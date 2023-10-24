@@ -1,10 +1,110 @@
+@use "../../App.scss" as global-style;
+
 .video-details {
-
-
     &__video {
         width: 100vw;
+        height: 57vw;
+        min-width: global-style.$min-width;
+
+        @include global-style.tablet {
+            height: 52vw;
+        }
     }
 
+    &__title {
+        font-size: 1.5rem;
+        margin: 1rem 0;
+        padding: 0 global-style.$mobile-gap;
+        min-width: global-style.$min-width;
+    }
+
+    &__info {
+        padding: 0 global-style.$mobile-gap;
+        display: flex;
+        justify-content: left;
+        gap: 35%;
+        min-width: global-style.$min-width;
+    }
+
+    &__left {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        gap: 1rem;
+        margin: 1rem 0;
+
+
+        @include global-style.tablet {
+            display: flex;
+            flex-direction: row;
+        }
+    }
+
+    &__right {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    &__channel {
+        font-size: 0.85rem;
+        font-weight: 400;
+        color: global-style.$brainflix-black;
+    }
+
+    &__time {
+        font-size: 0.85rem;
+        font-weight: 400;
+        color: global-style.$silver;
+    }
+
+    &__views {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+        color: global-style.$silver;
+        font-size: 0.85rem;
+    }
+
+    &__likes {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+        color: global-style.$silver;
+        font-size: 1rem;
+    }
+
+    &__views-text {
+        font-size: 0.85rem;
+    }
+
+    &__likes-text {
+        font-size: 0.85rem;
+    }
+
+    &__description {
+        padding: global-style.$mobile-gap global-style.$mobile-gap 0;
+        font-size: 0.8rem;
+        line-height: 1.15rem;
+        color: global-style.$brainflix-black;
+        min-width: global-style.$min-width;
+    }
+
+    &__input {
+        padding: global-style.$mobile-gap global-style.$mobile-gap 0;
+    }
+
+    &__heading {
+        font-size: 0.75rem;
+        margin-bottom: 1rem;
+        color: global-style.$brainflix-black;
+    }
+
+    &__form {
+        display: flex;
+        gap: global-style.$mobile-gap;
+    }
 
     &__avatar {
         width: 2.25rem;
@@ -15,4 +115,62 @@
         margin-top: 1.5rem;
     }
 
+    &__text {
+        width: 100%;
+        border: 1px solid global-style.$brainflix-mercury;
+        box-sizing: border-box;
+        background-color: global-style.$brainflix-Alabaster;
+        margin-top: 0.25rem;
+        height: 6rem;
+    }
+
+    &__text::placeholder {
+        color: global-style.$brainflix-black;
+        padding: 0.5rem;
+    }
+
+    &__label {
+        font-size: 0.75rem;
+        font-weight: 400;
+        color: global-style.$silver;
+    }
+
+    &__button {
+        height: 2.5rem;
+        width: 14.7rem;
+        background-image: url("../../assets/images/Icons/add_comment.svg");
+        background-position: 0.5rem center;
+        background-repeat: no-repeat;
+        background-color: global-style.$brainflix-blue;
+        background-size: 7.5%;
+        border: none;
+        border-radius: 4px;
+        font-family: "Avenir", sans-serif;
+        font-weight: 400;
+        font-size: 0.75rem;
+        color: global-style.$whilte;
+        margin: 0.75rem 0 1rem;
+
+        @include global-style.tablet {
+            width: 10rem;
+            background-size: 12.5%;
+        }
+
+        @include global-style.desktop {
+            width: 9rem;
+        }
+    }
+
+    &__divider {
+        height: 1px;
+        // width: 90%;
+        width: calc(100% - 2rem);
+        border-top: 1px solid global-style.$brainflix-mercury;
+        margin: 0 global-style.$mobile-gap;
+        min-width: global-style.$min-width;
+
+        @include global-style.tablet {
+            margin: 0 global-style.$tablet-gap;
+        }
+    }
 }

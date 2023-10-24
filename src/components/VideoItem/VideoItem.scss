@@ -1,6 +1,34 @@
-.video-list {
-    width: 5rem;
+@use "../../App.scss" as global-style;
 
+.video-list {
+    list-style: none;
+    display: flex;
+    gap: global-style.$mobile-gap;
+    margin-top: 0.75rem;
+    min-width: global-style.$min-width;
+
+    @include global-style.tablet {
+        margin-top: 1.6rem;
+    }
+    
+    &__image {
+        width: 6.5rem;
+        height: 3.8rem;
+        border-radius: 4px;
+    }
+
+    &__text {
+        width: 10rem;
+        font-size: 0.7rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__title{
+        line-height: 1.1rem;
+        font-weight: 400;
+    }
 }
 
 h5 {
