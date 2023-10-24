@@ -4,7 +4,6 @@ import './VideoItem.scss';
 const VideoItem = (props) => {
     const handleClick = (e) => {
         let selectedId =  e.target.id;
-        console.log(selectedId === e.target.id);
         props.selectVideo(selectedId);
     }
 
