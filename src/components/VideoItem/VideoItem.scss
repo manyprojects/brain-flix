@@ -15,6 +15,7 @@
         width: 6.5rem;
         height: 3.8rem;
         border-radius: 4px;
+        object-fit: cover;
 
         @include global-style.tablet {
             width: 7rem;

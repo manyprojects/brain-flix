@@ -60,3 +60,12 @@ $brainflix-Alabaster: #FAFAFA;
     box-sizing: border-box;
     margin: 0;
 }
+
+.App {
+    @include desktop {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+}
