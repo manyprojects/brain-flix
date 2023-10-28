@@ -9,11 +9,8 @@
         width: 100vw;
         height: 57vw;
         min-width: global-style.$min-width;
-<<<<<<< HEAD
         max-width: global-style.$max-width;
-=======
         background-color: global-style.$brainflix-dark-black;
->>>>>>> develop
 
         @include global-style.tablet {
             height: 52vw;
