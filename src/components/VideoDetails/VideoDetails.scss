@@ -2,23 +2,26 @@
 
 .video-details {
     @include global-style.desktop {
-        width: 75%;
-        padding-left: global-style.$desktop-gap;
-        padding-right: 1rem;
+        width: 65%;
     }
 
     &__video {
         width: 100vw;
         height: 57vw;
         min-width: global-style.$min-width;
+<<<<<<< HEAD
         max-width: global-style.$max-width;
+=======
+        background-color: global-style.$brainflix-dark-black;
+>>>>>>> develop
 
         @include global-style.tablet {
             height: 52vw;
         }
 
         @include global-style.desktop {
-            height: 38vw;
+            height: 30rem;
+            max-width: global-style.$max-width;
         }
     }
 
