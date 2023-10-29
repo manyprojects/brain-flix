@@ -1,5 +1,6 @@
 @use "../../App.scss" as global-style;
 
+
 .nav{
     padding: global-style.$mobile-gap;
     display: flex;
@@ -7,6 +8,7 @@
     gap: global-style.$mobile-gap;
     max-width: global-style.$max-width;
     min-width: global-style.$min-width;
+    text-decoration: none;
 
     @include global-style.tablet {
         align-items: center;
@@ -107,6 +109,7 @@
     }
 
     &__search-tablet {
+
         @include global-style.mobile {
             display: none;
         }
@@ -147,7 +150,7 @@
         font-family: "Avenir", sans-serif;
         font-weight: 400;
         font-size: 0.75rem;
-        color: global-style.$whilte;
+        color: global-style.$white;
 
         @include global-style.tablet {
             width: 10rem;
@@ -157,6 +160,10 @@
         @include global-style.desktop {
             width: 9rem;
         }
+    }
+
+    &__button-upload:hover {
+        background-color: global-style.$brainflix-dark-blue;
     }
 
 }

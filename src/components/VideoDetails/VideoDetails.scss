@@ -253,7 +253,7 @@
         font-family: "Avenir", sans-serif;
         font-weight: 400;
         font-size: 0.75rem;
-        color: global-style.$whilte;
+        color: global-style.$white;
         margin: 0.75rem 0 1rem;
 
         @include global-style.tablet {
@@ -266,6 +266,10 @@
         @include global-style.desktop {
             width: 9rem;
         }
+    }
+
+    &__button:hover {
+        background-color: global-style.$brainflix-dark-blue;
     }
 
     &__divider {

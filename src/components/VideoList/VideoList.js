@@ -9,7 +9,7 @@ const VideoList = (props) => {
             <ul className='list'>
                 <h5 className='list__title'>NEXT VIDEOS</h5>
                 {props.videos.map(video => 
-                    video.id === props.selectedVideo.id? console.log(video.id):
+                    video.id === props.selectedVideo.id? video.id:
                         <VideoItem 
                             key = {video.id}
                             id = {video.id}
