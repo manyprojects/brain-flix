@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from "axios"; 
 import { API_URL, KEY } from "../../utils/endpoints";
 import { NavLink } from 'react-router-dom';
+import timeFunc from '../../utils/timeFunction';
 import imgViews from "../../assets/images/Icons/views.svg";
 import imgLikes from "../../assets/images/Icons/likes.svg";
 import commentAvatar from "../../assets/images/Images/Mohan-muruge.jpg";
@@ -24,21 +25,18 @@ const HomePage = () => {
                 .get(`${API_URL}/videos?api_key=${KEY}`);
                 setVideoData(videoResponse);
 
-                // console.log(videoResponse.data[0].id);
-
                 const fetchVideoDetails = async () => {
                     try {
                         const videoDetailsResponse = await axios
                         .get(`${API_URL}/videos/${videoResponse.data[0].id}?api_key=${KEY}`);
                         setVideoDetailsData(videoDetailsResponse.data);
-                        // console.log("videoDetailsResponse", videoDetailsResponse);
                     } catch(err) {
-                        console.log("VideoDataDetails: ", err);
+                        console.log("HomePage - VideoDataDetails: ", err);
                     }
                 }
                 fetchVideoDetails();
             } catch(err) {
-                console.log("VideoData: ", err);
+                console.log("HomePage - VideoData: ", err);
             }
         }
         fetchVideo();
@@ -71,30 +69,6 @@ const HomePage = () => {
         timestamp, 
         comments
     } = videoDetailsData;
-
-    function timeFunc(timestamp) {
-        const commentDate = new Date(timestamp); 
-        let month = commentDate.getMonth() + 1;
-        let date = commentDate.getDate();
-        if (month < 10) {
-            month  = '0' + month;
-        }
-        if (date < 10) {
-            date = '0' + date;
-        }
-        return  `${month}/${date}/${commentDate.getFullYear()}`;
-    }
-
-    // const selectVideo = (selectedVideoId) => {
-    //     const newSelectedVideo = videoArray.find(
-    //         video => video.id === selectedVideoId);
-    //     setVideoDetailsData(newSelectedVideo);
-    // }
-
-    // const handleClick = (e) => {
-    //     let selectedId =  e.target.id;
-    //     selectVideo(selectedId);
-    // }
 
     return (
         <main>
@@ -143,7 +117,6 @@ const HomePage = () => {
                     </form>
                 </div>
                 <hr className='video-details__divider' />
-
 
                 {comments.map(comment => (
                     <div key={comment.id}>
