@@ -3,6 +3,7 @@ import Header from "./components/Header/Header";
 // import Hero from "./components/Hero/Hero";
 import HomePage from "./pages/HomePage/HomePage";
 import UploadPage from './pages/UploadPage/UploadPage';
+import VideoDetailsPage from './pages/VideoDetailsPage/VideoDetailsPage';
 import './App.scss';
 
 // https://project-2-api.herokuapp.com
@@ -19,17 +20,16 @@ function App() {
     //   <Header />
     //   <Hero />
     // </main>
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        {/* <Route path="VideoDetails" element={<VideoDetailsPage />} /> */}
-        <Route path="upload" element={<UploadPage />} />
-        
-      </Routes>
-    
-    </BrowserRouter>
-
+    <div className="app">
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/video/:videoId" element={<VideoDetailsPage />} />
+          <Route path="/upload" element={<UploadPage />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
 
 
   );

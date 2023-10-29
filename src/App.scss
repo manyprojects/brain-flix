@@ -60,7 +60,7 @@ $brainflix-Alabaster: #FAFAFA;
     margin: 0;
 }
 
-.App {
+.app {
     @include desktop {
         display: flex;
         flex-direction: column;

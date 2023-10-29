@@ -1,0 +1,60 @@
+@use "../../App.scss" as global-style;
+
+.video-list {
+    list-style: none;
+    display: flex;
+    gap: global-style.$mobile-gap;
+    margin-top: 0.75rem;
+    min-width: global-style.$min-width;
+    text-decoration: none;
+    color: global-style.$brainflix-black;
+
+    @include global-style.tablet {
+        margin-top: 1.5rem;
+    }
+
+    &__image {
+        width: 6.5rem;
+        height: 3.8rem;
+        border-radius: 4px;
+        object-fit: cover;
+        z-index: -1;
+
+        @include global-style.tablet {
+            width: 7rem;
+            height: 4rem;
+        }
+    }
+
+    &__text {
+        width: 10rem;
+        font-size: 0.7rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        z-index: -1;
+    }
+
+    &__title{
+        line-height: 1.1rem;
+        font-weight: 400;
+
+        @include global-style.tablet {
+            font-size: 0.9rem;
+            width: 11.25rem;
+        }
+    }
+
+    &__channel {
+        @include global-style.tablet {
+            font-size: 0.9rem;
+        }
+    }
+}
+
+li {
+    list-style: none;
+    text-decoration: none;
+    color: global-style.$brainflix-black;
+
+}
