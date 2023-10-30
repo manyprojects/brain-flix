@@ -57,7 +57,8 @@ const HomePage = () => {
         image, 
         description, 
         views, 
-        likes, 
+        likes,
+        video,
         timestamp, 
         comments
     } = videoDetailsData;
@@ -66,6 +67,7 @@ const HomePage = () => {
         <main>
             <div className='video-details'>
                 <video className='video-details__video' controls poster={image}>
+                    <source src={`${video}?api_key=${KEY}`} type="video/mp4"></source>
                 </video>
 
                 <h1 className='video-details__title'>{title}</h1>

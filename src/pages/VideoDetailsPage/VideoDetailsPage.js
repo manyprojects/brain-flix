@@ -61,6 +61,7 @@ const VideoDetailsPage = () => {
         description, 
         views, 
         likes, 
+        video,
         timestamp, 
         comments
     } = videoHeroData.data;
@@ -69,6 +70,7 @@ const VideoDetailsPage = () => {
         <main>
             <div className='video-details'>
                 <video className='video-details__video' controls poster={image}>
+                    <source src={`${video}?api_key=${KEY}`} type="video/mp4"></source>
                 </video>
 
                 <h1 className='video-details__title'>{title}</h1>
