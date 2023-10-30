@@ -1,9 +1,20 @@
 import React from 'react';
-
+import { useState } from 'react';
 import imageUpload from "../../assets/images/Images/Upload-video-preview.jpg";
 import "./UploadPage.scss";
 
+
 const UploadPage = () => {
+    const [state, setState] = useState(false);
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        setState(true);
+        setTimeout(() => {
+            setState(false);
+        }, 1500);
+    }
+
     return (
         <div className='upload'>
             <hr className='upload__divider'></hr>
@@ -14,6 +25,7 @@ const UploadPage = () => {
                     <div className='upload__thumbnail'>
                         <h3 className='upload__heading'>VIDEO THUMBNAIL</h3>
                         <img className='upload__image' src={imageUpload} alt="" />
+                        {state && <div className='upload__alarm'>Upload Successful!</div>}
                     </div>
                     <div className='upload__input'>
                         <label className='upload__description-title' htmlFor='uploadText'>TITLE YOUR VIDEO</label><br />
@@ -24,13 +36,10 @@ const UploadPage = () => {
                 </section>
                 <hr className='upload__divider-tablet-below'/>
                 <div className='upload__buttons'>
-                    <button className='upload__publish'>PUBLISH</button>
+                    <button className='upload__publish' onClick={handleClick}>PUBLISH</button>
                     <button className='upload__cancel'>CANCEL</button>
                 </div>
             </form>
-
-
-
         </div>
     );
 };

@@ -8,7 +8,6 @@ import timeFunc from "../../utils/timeFunction";
 import imgViews from "../../assets/images/Icons/views.svg";
 import imgLikes from "../../assets/images/Icons/likes.svg";
 import commentAvatar from "../../assets/images/Images/Mohan-muruge.jpg";
-
 import "../../components/VideoDetails/VideoDetails.scss";
 import "../../components/Comments/Comments.scss";
 import "../../components/VideoList/VideoList.scss";
@@ -21,12 +20,10 @@ const VideoDetailsPage = () => {
     const [videoHeroData, setVideoHeroData] = useState(null);
 
     useEffect(() => {
-        // console.log("videoId", videoId);
         const fetchHeroVideo = async () => {
             try {
                 const videoHeroResponse = await axios
                 .get(`${API_URL}/videos/${videoId}?api_key=${KEY}`);
-                // console.log("videoHeroResponse" ,videoHeroResponse);
                 setVideoHeroData(videoHeroResponse);
 
             } catch(err) {
@@ -39,7 +36,6 @@ const VideoDetailsPage = () => {
             try {
                 const videoListResponse = await axios
                 .get(`${API_URL}/videos?api_key=${KEY}`);
-                // console.log("videoListResponse", videoListResponse);
                 setVideoListData(videoListResponse);
             } catch(err) {
                 console.log("VideoDetailsPage - VideoListData:", err);
@@ -65,12 +61,9 @@ const VideoDetailsPage = () => {
         description, 
         views, 
         likes, 
-        // duration, 
-        // video, 
         timestamp, 
         comments
     } = videoHeroData.data;
-    // console.log("videoHeroData.data", title);
 
     return (
         <main>
@@ -158,7 +151,6 @@ const VideoDetailsPage = () => {
                     )}
                 </ul>
             </>
-
 
         </main>
     );

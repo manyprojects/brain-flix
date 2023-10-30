@@ -43,11 +43,6 @@ const HomePage = () => {
 
     }, []);
 
-    console.log("videoData: ", videoData);
-    // console.log("videoDetailsData", typeof(videoDetailsData.data));
-    console.log("videoDetailsData", videoDetailsData);
-
-
     if(!videoData || !videoDetailsData) {
         return (
             <p>Loading videos... </p>
@@ -57,15 +52,12 @@ const HomePage = () => {
     // destructuring data
     const videoArray = videoData.data;
     const {
-        // id,
         title, 
         channel, 
         image, 
         description, 
         views, 
         likes, 
-        // duration, 
-        // video, 
         timestamp, 
         comments
     } = videoDetailsData;
