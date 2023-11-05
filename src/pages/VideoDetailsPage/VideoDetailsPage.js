@@ -27,7 +27,7 @@ const VideoDetailsPage = () => {
                 setVideoHeroData(videoHeroResponse);
 
             } catch(err) {
-                console.log("VideoDetailsPage - VideoDataDetails: ", err);
+                return <p>{`VideoDetailsPage - VideoDetailsData: ${err.message}`} </p>;
             }
         }
         fetchHeroVideo();
@@ -38,7 +38,7 @@ const VideoDetailsPage = () => {
                 .get(`${API_URL}/videos?api_key=${KEY}`);
                 setVideoListData(videoListResponse);
             } catch(err) {
-                console.log("VideoDetailsPage - VideoListData:", err);
+                return <p>{`VideoDetailsPage - VideoData: ${err.message}`} </p>;
             }
         }
         fetchVideoList();

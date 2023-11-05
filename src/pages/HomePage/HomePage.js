@@ -18,12 +18,20 @@ const HomePage = () => {
     const [videoData, setVideoData] = useState(null);
     const [videoDetailsData, setVideoDetailsData] = useState(null);
 
+    const SERVER_URL = process.env.REACT_APP_SERVER_URL;
+    // console.log(SERVER_URL);
+
     useEffect(() => {
         const fetchVideo = async () => {
             try {
+                // const videoResponse = await axios
+                // .get(`${API_URL}/videos?api_key=${KEY}`);
+                // setVideoData(videoResponse);
                 const videoResponse = await axios
-                .get(`${API_URL}/videos?api_key=${KEY}`);
+                .get(`${SERVER_URL}`);
                 setVideoData(videoResponse);
+                console.log(videoResponse);
+
 
                 const fetchVideoDetails = async () => {
                     try {
@@ -31,12 +39,14 @@ const HomePage = () => {
                         .get(`${API_URL}/videos/${videoResponse.data[0].id}?api_key=${KEY}`);
                         setVideoDetailsData(videoDetailsResponse.data);
                     } catch(err) {
-                        console.log("HomePage - VideoDataDetails: ", err);
+                        // useEffect won't render error message immediately
+                        return (<p>{`HomePage - VideoDataDetails: ${err.message}`} </p>);
                     }
                 }
                 fetchVideoDetails();
             } catch(err) {
-                console.log("HomePage - VideoData: ", err);
+                // useEffect won't render error message immediately
+                return <p>{`HomePage - VideoData: ${err.message}`} </p>;
             }
         }
         fetchVideo();
