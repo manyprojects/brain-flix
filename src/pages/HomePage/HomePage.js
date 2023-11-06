@@ -19,7 +19,6 @@ const HomePage = () => {
     const [videoDetailsData, setVideoDetailsData] = useState(null);
 
     const SERVER_URL = process.env.REACT_APP_SERVER_URL;
-    // console.log(SERVER_URL);
 
     useEffect(() => {
         const fetchVideo = async () => {
@@ -30,13 +29,15 @@ const HomePage = () => {
                 const videoResponse = await axios
                 .get(`${SERVER_URL}`);
                 setVideoData(videoResponse);
-                console.log(videoResponse);
 
 
                 const fetchVideoDetails = async () => {
                     try {
+                        // const videoDetailsResponse = await axios
+                        // .get(`${API_URL}/videos/${videoResponse.data[0].id}?api_key=${KEY}`);
+                        // setVideoDetailsData(videoDetailsResponse.data);
                         const videoDetailsResponse = await axios
-                        .get(`${API_URL}/videos/${videoResponse.data[0].id}?api_key=${KEY}`);
+                        .get(`${SERVER_URL}/video`);
                         setVideoDetailsData(videoDetailsResponse.data);
                     } catch(err) {
                         // useEffect won't render error message immediately
@@ -71,7 +72,7 @@ const HomePage = () => {
         video,
         timestamp, 
         comments
-    } = videoDetailsData;
+    } = videoDetailsData[0];
 
     return (
         <main>
