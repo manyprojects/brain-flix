@@ -23,19 +23,12 @@ const HomePage = () => {
     useEffect(() => {
         const fetchVideo = async () => {
             try {
-                // const videoResponse = await axios
-                // .get(`${API_URL}/videos?api_key=${KEY}`);
-                // setVideoData(videoResponse);
                 const videoResponse = await axios
                 .get(`${SERVER_URL}`);
                 setVideoData(videoResponse);
 
-
                 const fetchVideoDetails = async () => {
                     try {
-                        // const videoDetailsResponse = await axios
-                        // .get(`${API_URL}/videos/${videoResponse.data[0].id}?api_key=${KEY}`);
-                        // setVideoDetailsData(videoDetailsResponse.data);
                         const videoDetailsResponse = await axios
                         .get(`${SERVER_URL}/video`);
                         setVideoDetailsData(videoDetailsResponse.data);

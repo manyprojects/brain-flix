@@ -13,6 +13,11 @@ const UploadPage = () => {
         e.preventDefault();
         setState(true);
         setTimeout(() => {
+
+
+
+
+            
             setState(false);
             navigate('/');
         }, 1500);
