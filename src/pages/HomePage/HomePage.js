@@ -1,7 +1,6 @@
-import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from "axios"; 
-import { API_URL, KEY } from "../../utils/endpoints";
+import { KEY } from "../../utils/endpoints";
 import { NavLink } from 'react-router-dom';
 import timeFunc from '../../utils/timeFunction';
 import imgViews from "../../assets/images/Icons/views.svg";
@@ -15,46 +14,32 @@ import "../../components/Hero/HeroPage.scss";
 
 const HomePage = () => {
     
-    const [videoData, setVideoData] = useState(null);
     const [videoDetailsData, setVideoDetailsData] = useState(null);
 
     const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
     useEffect(() => {
-        const fetchVideo = async () => {
+        const fetchVideoDetails = async () => {
             try {
-                const videoResponse = await axios
-                .get(`${SERVER_URL}`);
-                setVideoData(videoResponse);
-
-                const fetchVideoDetails = async () => {
-                    try {
-                        const videoDetailsResponse = await axios
-                        .get(`${SERVER_URL}/video`);
-                        setVideoDetailsData(videoDetailsResponse.data);
-                    } catch(err) {
-                        // useEffect won't render error message immediately
-                        return (<p>{`HomePage - VideoDataDetails: ${err.message}`} </p>);
-                    }
-                }
-                fetchVideoDetails();
+                const videoDetailsResponse = await axios
+                .get(`${SERVER_URL}/videos`);
+                setVideoDetailsData(videoDetailsResponse.data);
             } catch(err) {
                 // useEffect won't render error message immediately
-                return <p>{`HomePage - VideoData: ${err.message}`} </p>;
+                return (<p>{`HomePage - VideoDataDetails: ${err.message}`} </p>);
             }
         }
-        fetchVideo();
-
+        fetchVideoDetails();
+        // eslint-disable-next-line 
     }, []);
 
-    if(!videoData || !videoDetailsData) {
+    if( !videoDetailsData ) {
         return (
             <p>Loading videos... </p>
         );
     }
 
     // destructuring data
-    const videoArray = videoData.data;
     const {
         title, 
         channel, 
@@ -136,8 +121,8 @@ const HomePage = () => {
             <>
                 <ul className='list'>
                     <h5 className='list__title'>NEXT VIDEOS</h5>
-                    {videoArray.map(video => {
-                        if(video.id !== videoData.data[0].id) {
+                    {videoDetailsData.map(video => {
+                        if(video.id !== videoDetailsData[0].id) {
                             return (<li key={video.id}>
                                         <NavLink to={`/video/${video.id}`} className='video-list'>
                                             <img src={video.image} className='video-list__image' alt='videos' />

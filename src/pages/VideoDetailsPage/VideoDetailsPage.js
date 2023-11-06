@@ -1,8 +1,7 @@
-import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom"
 import axios from "axios";
-import { API_URL, KEY } from "../../utils/endpoints";
+import { KEY } from "../../utils/endpoints";
 import { NavLink } from "react-router-dom";
 import timeFunc from "../../utils/timeFunction";
 import imgViews from "../../assets/images/Icons/views.svg";
@@ -17,38 +16,24 @@ import "../../components/Hero/HeroPage.scss";
 const VideoDetailsPage = () => {
     const { videoId } = useParams();
     const [videoListData, setVideoListData] = useState(null);
-    const [videoHeroData, setVideoHeroData] = useState(null);
 
     const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
     useEffect(() => {
-        const fetchHeroVideo = async () => {
-            try {
-                const videoHeroResponse = await axios
-                .get(`${SERVER_URL}/video/${videoId}`);
-                setVideoHeroData(videoHeroResponse);
-
-            } catch(err) {
-                return <p>{`VideoDetailsPage - VideoDetailsData: ${err.message}`} </p>;
-            }
-        }
-        fetchHeroVideo();
-
         const fetchVideoList = async() => {
             try {
                 const videoListResponse = await axios
-                .get(`${SERVER_URL}/video`);
+                .get(`${SERVER_URL}/videos`);
                 setVideoListData(videoListResponse);
             } catch(err) {
                 return <p>{`VideoDetailsPage - VideoData: ${err.message}`} </p>;
             }
         }
         fetchVideoList();
-
-
+        // eslint-disable-next-line 
     }, [videoId]);
 
-    if(!videoHeroData || !videoListData) {
+    if( !videoListData ) {
         return (
             <p>Loading videos... </p>
         );
@@ -66,7 +51,7 @@ const VideoDetailsPage = () => {
         video,
         timestamp, 
         comments
-    } = videoHeroData.data;
+    } = videoListData.data.find(v => videoId === v.id);
 
     return (
         <main>
