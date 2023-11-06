@@ -19,11 +19,13 @@ const VideoDetailsPage = () => {
     const [videoListData, setVideoListData] = useState(null);
     const [videoHeroData, setVideoHeroData] = useState(null);
 
+    const SERVER_URL = process.env.REACT_APP_SERVER_URL;
+
     useEffect(() => {
         const fetchHeroVideo = async () => {
             try {
                 const videoHeroResponse = await axios
-                .get(`${API_URL}/videos/${videoId}?api_key=${KEY}`);
+                .get(`${SERVER_URL}/video/${videoId}`);
                 setVideoHeroData(videoHeroResponse);
 
             } catch(err) {
@@ -35,7 +37,7 @@ const VideoDetailsPage = () => {
         const fetchVideoList = async() => {
             try {
                 const videoListResponse = await axios
-                .get(`${API_URL}/videos?api_key=${KEY}`);
+                .get(`${SERVER_URL}/video`);
                 setVideoListData(videoListResponse);
             } catch(err) {
                 return <p>{`VideoDetailsPage - VideoData: ${err.message}`} </p>;
